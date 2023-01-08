@@ -1,13 +1,13 @@
+import { Post } from 'types/index';
 import { getFeaturedPosts } from 'services/posts';
 import { HomePage } from './HomePage';
 
-const fetchData = async () => {
+const fetchFeaturedPosts = async () => {
   return getFeaturedPosts();
 };
 
 const Home = async () => {
-  const res = await fetchData();
-  const { data } = res;
+  const { data }: { data: Post[] } = await fetchFeaturedPosts();
 
   return (
     <>

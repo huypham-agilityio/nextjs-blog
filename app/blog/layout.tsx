@@ -12,12 +12,12 @@ export default async function Layout({
 }: {
   children: React.ReactNode;
 }) {
-  const categories = await fetchCategories();
+  const { data } = await fetchCategories();
 
   return (
     <>
       <BlogIntroduction />
-      <CategoryNav categories={categories} />
+      <CategoryNav categories={data} />
       <div style={{ minHeight: 'calc(100vh - 580px)' }}>{children}</div>
     </>
   );

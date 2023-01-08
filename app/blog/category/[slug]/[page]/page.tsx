@@ -1,5 +1,4 @@
 import { getCategories, getPostsByCategory } from '@services/posts';
-import { Category } from 'types/index';
 import { FIRST_PAGE, LIMIT } from '@constants/pagination';
 import { BlogPage } from 'app/blog/BlogPage';
 
@@ -8,9 +7,9 @@ const fetchPostsByCategory = async (category: string, page: number) => {
 };
 
 export async function generateStaticParams() {
-  const categories: Category[] = await getCategories();
+  const { data } = await getCategories();
 
-  return categories.map(({ slug }) => ({
+  return data.map(({ slug }) => ({
     slug: slug,
     page: FIRST_PAGE.toString(),
   }));

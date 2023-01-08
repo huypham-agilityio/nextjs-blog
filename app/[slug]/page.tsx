@@ -1,15 +1,16 @@
 import { notFound } from 'next/navigation';
 import { getPost, getPosts } from 'services/posts';
 import { PostDetail } from './PostDetail';
+import { LIMIT } from '@constants/pagination';
 
 const fetchPostDetail = async (slug: string) => {
   return getPost(slug);
 };
 
 export async function generateStaticParams() {
-  const { data = [] } = await getPosts();
+  const { data } = await getPosts({ page: 1, limit: LIMIT });
 
-  return data.map(({ slug }) => ({
+  return data?.map(({ slug }) => ({
     slug,
   }));
 }

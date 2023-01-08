@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { Post } from 'types/index';
 
 type Props = {
-  data?: Post[];
+  data: Post[];
   total?: number;
   params?: {
     page: string;
