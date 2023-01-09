@@ -40,7 +40,6 @@ const PostCard = ({ variant, data }: Props) => {
             fill={true}
             placeholder="blur"
             blurDataURL={blurDataUrl}
-            // sizes="(min-width: 1200px) 50px"
           />
         </Box>
         <Link href={`/${slug}`} prefetch={false}>

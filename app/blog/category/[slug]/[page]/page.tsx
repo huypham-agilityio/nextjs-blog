@@ -1,5 +1,5 @@
 import { getCategories, getPostsByCategory } from '@services/posts';
-import { FIRST_PAGE, LIMIT } from '@constants/pagination';
+import { LIMIT } from '@constants/pagination';
 import { BlogPage } from 'app/blog/BlogPage';
 
 const fetchPostsByCategory = async (category: string, page: number) => {
@@ -11,7 +11,7 @@ export async function generateStaticParams() {
 
   return data.map(({ slug }) => ({
     slug: slug,
-    page: FIRST_PAGE.toString(),
+    page: '1',
   }));
 }
 
