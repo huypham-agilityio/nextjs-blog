@@ -7,7 +7,7 @@ import { Container } from './container';
 import { colors } from './colors';
 
 const satoshi = localFont({
-  src: '../assets/fonts/Satoshi.ttf',
+  src: '../public/fonts/Satoshi.ttf',
   weight: '400 700',
 });
 

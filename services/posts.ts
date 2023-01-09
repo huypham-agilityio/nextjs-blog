@@ -20,7 +20,7 @@ export const getFeaturedPosts = async (): Promise<{
   const data = await fetchRequest(
     `${process.env.BASE_URL}/posts?isFeatured=true`,
     {
-      next: { revalidate: 3600 }, // revalidate this page every 1 hour
+      next: { revalidate: 3600 }, // revalidate 1 hour
     }
   );
   return { data };
@@ -36,7 +36,7 @@ export const getPosts = async (
   const data = await fetchRequest(
     `${process.env.BASE_URL}/posts?p=${page}&l=${limit}`,
     {
-      next: { revalidate: 3600 }, // revalidate this page every 1 hour
+      next: { revalidate: 3600 }, // revalidate every 1 hour
     }
   );
 
@@ -55,7 +55,7 @@ export const getPostsByCategory = async (
   const data = await fetchRequest(
     `${process.env.BASE_URL}/posts?category=${category}&p=${page}&l=${limit}`,
     {
-      next: { revalidate: 3600 }, // revalidate this page every 1 hour
+      next: { revalidate: 3600 }, // revalidate every 1 hour
     }
   );
 
@@ -70,12 +70,8 @@ export const getCategories = async (): Promise<{
   return { data };
 };
 
-export const getPost = async (
-  slug: string
-): Promise<{
-  data: Post[];
-}> => {
+export const getPost = async (slug: string) => {
   const data = await fetchRequest(`${process.env.BASE_URL}/posts?slug=${slug}`);
 
-  return { data };
+  return data;
 };

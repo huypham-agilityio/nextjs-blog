@@ -6,14 +6,14 @@ const fetchPostsByCategory = async (category: string, page: number) => {
   return getPostsByCategory(category, { page, limit: LIMIT });
 };
 
-export async function generateStaticParams() {
+export const generateStaticParams = async () => {
   const { data } = await getCategories();
 
   return data.map(({ slug }) => ({
     slug: slug,
     page: '1',
   }));
-}
+};
 
 type Props = {
   params: {
