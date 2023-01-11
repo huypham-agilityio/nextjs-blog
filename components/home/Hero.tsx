@@ -1,15 +1,22 @@
+'use client';
+
+// libs
 import {
   Box,
   Button,
   Container,
   Heading,
+  HStack,
   Input,
   InputGroup,
   InputRightElement,
   Text,
 } from '@chakra-ui/react';
-import { blurDataUrl } from '@constants/index';
 import Image from 'next/image';
+
+// constants
+import { blurDataUrl } from '@constants/index';
+import { customers } from '@constants/mockData';
 
 export const Hero = () => {
   return (
@@ -64,6 +71,8 @@ export const Hero = () => {
               placeholder="blur"
               blurDataURL={blurDataUrl}
               style={{ borderRadius: 12 }}
+              sizes="(min-width: 640px) 640px"
+              priority={true}
             />
           </Box>
         </Box>
@@ -75,12 +84,17 @@ export const Hero = () => {
           py={100}
         >
           <Text fontWeight={500}>Trusted by 1,000+ customers</Text>
-          <Image
-            alt="clients"
-            src="/images/hero/clients.png"
-            width={800}
-            height={40}
-          />
+          <HStack spacing="60px">
+            {customers.map((image, index) => (
+              <Image
+                key={index}
+                alt={image.alt}
+                src={image.src}
+                width={image.width}
+                height={image.height}
+              />
+            ))}
+          </HStack>
         </Box>
       </Container>
     </Box>

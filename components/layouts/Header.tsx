@@ -1,17 +1,14 @@
 'use client';
 
+// libs
 import { Box, Button, Container, HStack, Text } from '@chakra-ui/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useSelectedLayoutSegments } from 'next/navigation';
 
-const navItems = [
-  { path: '/product', label: 'Product' },
-  { path: '/pricing', label: 'Pricing' },
-  { path: '/company', label: 'Company' },
-  { path: '/blog', label: 'Blog' },
-  { path: '/contact', label: 'Contact' },
-];
+// constants
+import { ROUTES } from '@constants/routes';
+import { menuItems } from '@constants/menuItems';
 
 export const Header = () => {
   const [selectedLayoutSegments] = useSelectedLayoutSegments();
@@ -27,11 +24,11 @@ export const Header = () => {
           py="24px"
         >
           <HStack alignItems="center" spacing="90px">
-            <Link href="/">
-              <Image src="/logo.png" alt="logo" width={106} height={22} />
+            <Link href={ROUTES.HOME}>
+              <Image src="/logo.png" alt="Yoora logo" width={106} height={22} />
             </Link>
             <HStack spacing="40px">
-              {navItems.map(({ path, label }) => (
+              {menuItems.map(({ path, label }) => (
                 <Link key={label} href={path}>
                   <Text
                     fontWeight="medium"

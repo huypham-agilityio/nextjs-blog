@@ -1,6 +1,11 @@
+// libs
 import React from 'react';
-import { CategoryNav } from '@components/layouts/CategoryNav';
+
+// utils
 import { getCategories } from '@services/posts';
+
+// components
+import { CategoryNav } from '@components/layouts/CategoryNav';
 import { BlogIntroduction } from '@components/blog/BlogIntroduction';
 
 async function fetchCategories() {
@@ -18,7 +23,7 @@ export default async function Layout({
     <>
       <BlogIntroduction />
       <CategoryNav categories={data} />
-      <div style={{ minHeight: 'calc(100vh - 580px)' }}>{children}</div>
+      {children}
     </>
   );
 }

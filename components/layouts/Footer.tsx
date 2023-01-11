@@ -1,7 +1,14 @@
 'use client';
 
-import { Box, HStack, Select, Text, Image } from '@chakra-ui/react';
+// libs
+import { Box, HStack, Text } from '@chakra-ui/react';
 import Link from 'next/link';
+
+// components
+import { Select } from '@components/common/Select';
+
+// constants
+import { footerNavLinks, languageOptions } from '@constants/mockData';
 
 export const Footer = () => {
   return (
@@ -15,17 +22,17 @@ export const Footer = () => {
           © Copyright 2022 Yoora, Inc.
         </Text>
         <HStack spacing="48px">
-          <Link href="#">Terms of Service</Link>
-          <Link href="#">Privacy Policy</Link>
-          <Link href="#">Cookies</Link>
+          {footerNavLinks.map((item) => (
+            <Link key={item.id} href={item.href}>
+              {item.label}
+            </Link>
+          ))}
         </HStack>
-        <HStack spacing="1.5">
-          <Image src="/earth.png" alt="earth icon" width="20px" height="20px" />
-          <Select variant="unstyled">
-            <option value="en">English</option>
-            <option value="vi">Viet Nam</option>
-          </Select>
-        </HStack>
+        <Select
+          options={languageOptions}
+          variant="unstyled"
+          iconUrl="/earth.png"
+        />
       </HStack>
     </Box>
   );

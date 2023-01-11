@@ -1,9 +1,14 @@
 'use client';
 
+// libs
 import { Heading, Box, Text, Divider, Stack } from '@chakra-ui/react';
-import { blurDataUrl } from '@constants/index';
-import { Post } from 'types/index';
 import Image from 'next/image';
+
+// constants
+import { blurDataUrl } from '@constants/index';
+
+// types
+import { Post } from 'types/index';
 
 type Props = { data: Post };
 

@@ -1,5 +1,10 @@
-import { LIMIT } from '@constants/pagination';
+// utils
 import { getPosts } from 'services/posts';
+
+// constants
+import { LIMIT } from '@constants/pagination';
+
+// components
 import { BlogPage } from '../BlogPage';
 
 const fetchPosts = async (page: number) => {

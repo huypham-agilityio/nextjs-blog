@@ -1,9 +1,12 @@
 'use client';
 
+// libs
 import { Tabs, TabList, Tab, Box, Container } from '@chakra-ui/react';
-import { Category } from 'types/index';
 import Link from 'next/link';
 import { useSelectedLayoutSegments } from 'next/navigation';
+
+// types
+import { Category } from 'types/index';
 
 type Props = {
   categories: Category[];
@@ -44,7 +47,9 @@ export const CategoryNav = ({ categories }: Props) => {
                   borderColor: 'whatsapp.500',
                 }}
               >
-                <Link href={`/blog/category/${slug}/1`}>{name}</Link>
+                <Link prefetch={false} href={`/blog/category/${slug}/1`}>
+                  {name}
+                </Link>
               </Tab>
             ))}
           </TabList>

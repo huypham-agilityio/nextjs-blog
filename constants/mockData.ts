@@ -129,3 +129,65 @@ export const benefits = [
     },
   },
 ];
+
+export const customers = [
+  {
+    src: '/images/hero/google.png',
+    alt: 'google',
+    width: 97,
+    height: 32,
+  },
+  {
+    src: '/images/hero/atlassian.png',
+    alt: 'atlassian',
+    width: 136,
+    height: 17,
+  },
+  {
+    src: '/images/hero/canon.png',
+    alt: 'canon',
+    width: 96,
+    height: 20,
+  },
+  {
+    src: '/images/hero/walmart.png',
+    alt: 'walmart',
+    width: 130,
+    height: 31,
+  },
+  {
+    src: '/images/hero/amazon.png',
+    alt: 'amazon',
+    width: 95,
+    height: 30,
+  },
+];
+
+export const footerNavLinks = [
+  {
+    id: '1',
+    label: 'Terms of Service',
+    href: '/terms',
+  },
+  {
+    id: '2',
+    label: 'Privacy Policy',
+    href: '/privacy-policy',
+  },
+  {
+    id: '3',
+    label: 'Cookies',
+    href: '/cookies',
+  },
+];
+
+export const languageOptions = [
+  {
+    label: 'Viet Nam',
+    value: 'vn',
+  },
+  {
+    label: 'English',
+    value: 'en',
+  },
+];

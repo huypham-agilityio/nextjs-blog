@@ -1,7 +1,16 @@
+// libs
 import { notFound } from 'next/navigation';
+
+// utils
 import { getPost, getPosts } from 'services/posts';
+
+// components
 import { PostDetail } from './PostDetail';
+
+// constans
 import { LIMIT } from '@constants/pagination';
+
+// types
 import { Post } from 'types/index';
 
 const fetchPostDetail = async (slug: string) => {

@@ -8,12 +8,12 @@ export type ImageType = {
 export type Post = {
   id: string;
   title: string;
-  author: string;
-  publishedTime: string;
-  category: string;
   image: ImageType;
-  slug: string;
   content: string;
+  slug: string;
+  author?: string;
+  publishedTime?: string;
+  category?: string;
 };
 
 export type Category = {

@@ -1,7 +1,12 @@
 'use client';
 
+// libs
 import { SimpleGrid } from '@chakra-ui/react';
+
+// components
 import PostCard from '@components/blog/PostCard';
+
+// types
 import { Post } from 'types/index';
 
 type Props = {

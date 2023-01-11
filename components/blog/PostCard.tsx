@@ -1,12 +1,17 @@
 'use client';
 
-import { Box, Divider, Heading, Stack, Text } from '@chakra-ui/react';
-import { Post } from 'types/index';
-import Image from 'next/image';
-import Link from 'next/link';
-import { blurDataUrl } from '@constants/index';
+// libs
 import { memo } from 'react';
 import isEqual from 'react-fast-compare';
+import { Box, Divider, Heading, Stack, Text } from '@chakra-ui/react';
+import Image from 'next/image';
+import Link from 'next/link';
+
+// types
+import { Post } from 'types/index';
+
+// constants
+import { blurDataUrl } from '@constants/index';
 
 type Props = {
   data: Post;

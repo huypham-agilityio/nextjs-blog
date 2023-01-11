@@ -1,11 +1,12 @@
 'use client';
 
-import { Box, Spinner } from '@chakra-ui/react';
+// libs
+import { Center, Spinner } from '@chakra-ui/react';
 
-export default function Indicator() {
+export default function Loading() {
   return (
-    <Box textAlign="center" pt="20" minH="100vh">
-      <Spinner emptyColor="gray.200" color="blue.500" size="md" />
-    </Box>
+    <Center py="24px">
+      <Spinner size="lg" />
+    </Center>
   );
 }

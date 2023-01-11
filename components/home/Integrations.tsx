@@ -1,3 +1,6 @@
+'use client';
+
+// libs
 import {
   Box,
   Center,
@@ -8,10 +11,14 @@ import {
   Wrap,
   WrapItem,
 } from '@chakra-ui/react';
-import { integrations } from '@constants/mockData';
-import { ImageType } from 'types/index';
 import Image from 'next/image';
 import Link from 'next/link';
+
+// constants
+import { integrations } from '@constants/mockData';
+
+// types
+import { ImageType } from 'types/index';
 
 type AppIcon = {
   width?: string;

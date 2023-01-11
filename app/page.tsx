@@ -1,19 +1,23 @@
-import { Post } from 'types/index';
-import { getFeaturedPosts } from 'services/posts';
-import { HomePage } from './HomePage';
+// libs
+import { Suspense } from 'react';
 
-const fetchFeaturedPosts = async () => {
-  return getFeaturedPosts();
-};
+// components
+import { Benefits } from '@components/home/Benefits';
+import { Hero } from '@components/home/Hero';
+import { Integrations } from '@components/home/Integrations';
+import Loading from './loading';
+import { Featured } from './Featured';
 
-const Home = async () => {
-  const { data }: { data: Post[] } = await fetchFeaturedPosts();
-
-  return (
-    <>
-      <HomePage featuredPosts={data} />
-    </>
-  );
-};
+const Home = () => (
+  <>
+    <Hero />
+    <Benefits />
+    <Integrations />
+    <Suspense fallback={<Loading />}>
+      {/* @ts-expect-error Server Component */}
+      <Featured />
+    </Suspense>
+  </>
+);
 
 export default Home;

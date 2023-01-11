@@ -1,6 +1,8 @@
+// libs
 import React from 'react';
 import { ChakraProvider } from '@components/common/ChakraProvider';
 
+// components
 import { Header } from '@components/layouts/Header';
 import { Footer } from '@components/layouts/Footer';
 

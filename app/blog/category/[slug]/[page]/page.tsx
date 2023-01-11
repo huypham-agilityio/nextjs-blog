@@ -1,6 +1,11 @@
+// utils
 import { getCategories, getPostsByCategory } from '@services/posts';
-import { LIMIT } from '@constants/pagination';
+
+// components
 import { BlogPage } from 'app/blog/BlogPage';
+
+// constants
+import { LIMIT } from '@constants/pagination';
 
 const fetchPostsByCategory = async (category: string, page: number) => {
   return getPostsByCategory(category, { page, limit: LIMIT });

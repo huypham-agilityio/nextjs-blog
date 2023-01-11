@@ -1,3 +1,8 @@
+'use client';
+
+// libs
+import { memo } from 'react';
+import isEqual from 'react-fast-compare';
 import {
   Box,
   Card,
@@ -7,10 +12,10 @@ import {
   Stack,
   Text,
 } from '@chakra-ui/react';
-import { memo } from 'react';
-import { ImageType } from 'types/index';
 import Image from 'next/image';
-import isEqual from 'react-fast-compare';
+
+// types
+import { ImageType } from 'types/index';
 
 type Props = {
   data: {

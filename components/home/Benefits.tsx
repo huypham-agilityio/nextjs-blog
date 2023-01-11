@@ -1,5 +1,12 @@
+'use client';
+
+// libs
 import { Box, Container, Heading, HStack, Stack, Text } from '@chakra-ui/react';
+
+// constants
 import { benefits } from '@constants/mockData';
+
+// components
 import BenefitCard from './BenefitCard';
 
 export const Benefits = () => {

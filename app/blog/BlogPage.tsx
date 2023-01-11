@@ -1,9 +1,15 @@
 'use client';
-
+// libs
 import { Button, Center, Stack, Text } from '@chakra-ui/react';
-import { BlogList } from '@components/blog/BlogList';
-import { LIMIT } from '@constants/pagination';
 import Link from 'next/link';
+
+// components
+import { BlogList } from '@components/blog/BlogList';
+
+// constants
+import { LIMIT } from '@constants/pagination';
+
+// types
 import { Post } from 'types/index';
 
 type Props = {
