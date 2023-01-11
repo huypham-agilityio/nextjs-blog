@@ -46,7 +46,7 @@ export const FeaturedPosts = ({ data }: Props) => {
           </Link>
         </HStack>
         <HStack spacing="7">
-          {data?.map((post) => (
+          {data.map((post) => (
             <PostCard key={post.id} variant="large" data={post} />
           ))}
         </HStack>

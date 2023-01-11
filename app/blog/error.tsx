@@ -1,6 +1,6 @@
 'use client';
 
-//libs
+// libs
 import { Center, Text } from '@chakra-ui/react';
 
 const Error = () => {

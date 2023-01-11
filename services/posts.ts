@@ -1,3 +1,4 @@
+import { BASE_API_URL } from '@constants/api';
 import { Category, PageInput, Post } from 'types/index';
 
 export const fetchRequest = async (url: string, option?: any) => {
@@ -17,12 +18,9 @@ export const fetchRequest = async (url: string, option?: any) => {
 export const getFeaturedPosts = async (): Promise<{
   data: Post[];
 }> => {
-  const data = await fetchRequest(
-    `${process.env.NEXT_PUBLIC_BASE_API_URL}/posts?isFeatured=true`,
-    {
-      next: { revalidate: 3600 }, // revalidate 1 hour
-    }
-  );
+  const data = await fetchRequest(`${BASE_API_URL}/posts?isFeatured=true`, {
+    next: { revalidate: 3600 }, // revalidate 1 hour
+  });
 
   return { data };
 };
@@ -35,7 +33,7 @@ export const getPosts = async (
 }> => {
   const { page, limit } = pagination;
   const data = await fetchRequest(
-    `${process.env.NEXT_PUBLIC_BASE_API_URL}/posts?p=${page}&l=${limit}`,
+    `${BASE_API_URL}/posts?p=${page}&l=${limit}`,
     {
       next: { revalidate: 3600 }, // revalidate every 1 hour
     }
@@ -54,7 +52,7 @@ export const getPostsByCategory = async (
 }> => {
   const { page, limit } = pagination;
   const data = await fetchRequest(
-    `${process.env.NEXT_PUBLIC_BASE_API_URL}/posts?category=${category}&p=${page}&l=${limit}`,
+    `${BASE_API_URL}/posts?category=${category}&p=${page}&l=${limit}`,
     {
       next: { revalidate: 3600 }, // revalidate every 1 hour
     }
@@ -67,16 +65,12 @@ export const getPostsByCategory = async (
 export const getCategories = async (): Promise<{
   data: Category[];
 }> => {
-  const data = await fetchRequest(
-    `${process.env.NEXT_PUBLIC_BASE_API_URL}/categories`
-  );
+  const data = await fetchRequest(`${BASE_API_URL}/categories`);
   return { data };
 };
 
 export const getPost = async (slug: string) => {
-  const data = await fetchRequest(
-    `${process.env.NEXT_PUBLIC_BASE_API_URL}/posts?slug=${slug}`
-  );
+  const data = await fetchRequest(`${BASE_API_URL}/posts?slug=${slug}`);
 
   return data;
 };

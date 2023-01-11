@@ -47,9 +47,7 @@ export const CategoryNav = ({ categories }: Props) => {
                   borderColor: 'whatsapp.500',
                 }}
               >
-                <Link prefetch={false} href={`/blog/category/${slug}/1`}>
-                  {name}
-                </Link>
+                <Link href={`/blog/category/${slug}/1`}>{name}</Link>
               </Tab>
             ))}
           </TabList>
