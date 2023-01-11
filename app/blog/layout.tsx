@@ -1,5 +1,5 @@
 import React from 'react';
-import { CategoryNav } from '@components/layout/CategoryNav';
+import { CategoryNav } from '@components/layouts/CategoryNav';
 import { getCategories } from '@services/posts';
 import { BlogIntroduction } from '@components/blog/BlogIntroduction';
 
