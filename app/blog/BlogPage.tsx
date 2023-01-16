@@ -40,7 +40,7 @@ export const BlogPage = ({ data, params, total = 0 }: Props) => {
         )}
 
         {total > LIMIT * currentPage && (
-          <Stack direction="row" justifyContent="flex-end">
+          <Stack direction="row" justifyContent="flex-end" mt="32px">
             <Link href={nextPagePath}>
               <Button
                 size="sm"
