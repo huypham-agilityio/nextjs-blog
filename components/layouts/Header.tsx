@@ -75,10 +75,7 @@ export const Header = () => {
             </Button>
           </HStack>
           <Box display={{ md: 'none' }}>
-            <Button
-              colorScheme="teal"
-              onClick={onOpen}
-            >
+            <Button aria-label="menu" colorScheme="teal" onClick={onOpen}>
               <HamburgerIcon />
             </Button>
           </Box>

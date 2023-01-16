@@ -82,7 +82,8 @@ export const Hero = () => {
                 fill={true}
                 sizes="100vw"
                 style={{
-                  borderRadius: '25px',
+                  borderRadius: '20px 0 0 20px',
+                  objectFit: 'cover',
                 }}
               />
             </Box>
