@@ -22,7 +22,7 @@ export default async function Layout({
   return (
     <>
       <BlogIntroduction />
-      <CategoryNav categories={data} />
+      <CategoryNav categories={data?.status === 404 ? [] : data} />
       {children}
     </>
   );

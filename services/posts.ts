@@ -1,5 +1,5 @@
 import { BASE_API_URL } from '@constants/api';
-import { Category, PageInput, Post } from 'types/index';
+import { PageInput } from 'types/index';
 
 export const fetchRequest = async (url: string, option?: any) => {
   try {
@@ -15,9 +15,7 @@ export const fetchRequest = async (url: string, option?: any) => {
   }
 };
 
-export const getFeaturedPosts = async (): Promise<{
-  data: Post[];
-}> => {
+export const getFeaturedPosts = async () => {
   const data = await fetchRequest(`${BASE_API_URL}/posts?isFeatured=true`, {
     next: { revalidate: 3600 }, // revalidate 1 hour
   });
@@ -25,12 +23,7 @@ export const getFeaturedPosts = async (): Promise<{
   return { data };
 };
 
-export const getPosts = async (
-  pagination: PageInput
-): Promise<{
-  data: Post[];
-  total: number;
-}> => {
+export const getPosts = async (pagination: PageInput) => {
   const { page, limit } = pagination;
   const data = await fetchRequest(
     `${BASE_API_URL}/posts?p=${page}&l=${limit}`,
@@ -46,10 +39,7 @@ export const getPosts = async (
 export const getPostsByCategory = async (
   category: string,
   pagination: PageInput
-): Promise<{
-  data: Post[];
-  total: number;
-}> => {
+) => {
   const { page, limit } = pagination;
   const data = await fetchRequest(
     `${BASE_API_URL}/posts?category=${category}&p=${page}&l=${limit}`,
@@ -62,9 +52,7 @@ export const getPostsByCategory = async (
   return { data, total: 15 };
 };
 
-export const getCategories = async (): Promise<{
-  data: Category[];
-}> => {
+export const getCategories = async () => {
   const data = await fetchRequest(`${BASE_API_URL}/categories`);
   return { data };
 };
@@ -72,5 +60,5 @@ export const getCategories = async (): Promise<{
 export const getPost = async (slug: string) => {
   const data = await fetchRequest(`${BASE_API_URL}/posts?slug=${slug}`);
 
-  return data;
+  return { data };
 };

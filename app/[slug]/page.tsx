@@ -11,7 +11,7 @@ import { PostDetail } from './PostDetail';
 import { LIMIT } from '@constants/pagination';
 
 // types
-import { Post } from 'types/index';
+import { Category } from 'types/index';
 
 const fetchPostDetail = async (slug: string) => {
   return getPost(slug);
@@ -20,7 +20,11 @@ const fetchPostDetail = async (slug: string) => {
 export const generateStaticParams = async () => {
   const { data } = await getPosts({ page: 1, limit: LIMIT });
 
-  return data?.map(({ slug }) => ({
+  if (data?.status === 404) {
+    return [];
+  }
+
+  return data.map(({ slug }: Category) => ({
     slug,
   }));
 };
@@ -32,14 +36,13 @@ type Props = {
 };
 
 const Page = async ({ params }: Props) => {
-  const data: Post[] = await fetchPostDetail(params.slug);
-  const post = data.length && data[0];
+  const { data } = await fetchPostDetail(params.slug);
 
-  if (!post) {
-    return notFound();
+  if (data?.status === 404) {
+    notFound();
   }
 
-  return <PostDetail data={post} />;
+  return <PostDetail data={data[0]} />;
 };
 
 export default Page;

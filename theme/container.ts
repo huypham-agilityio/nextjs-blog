@@ -1,6 +1,7 @@
 export const Container = {
   baseStyle: {
-    padding: 0,
+    paddingLeft: '24px',
+    paddingRight: '24px',
     maxWidth: '1440px',
   },
 };

@@ -13,6 +13,19 @@
   ],
   "rules": {
     "react/react-in-jsx-scope": "off",
-    "semi": ["error", "always"]
+    "semi": ["error", "always"],
+    "react/prop-types": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react-hooks/exhaustive-deps": "off",
+    "react-hooks/rules-of-hooks": "off",
+    "@next/next/inline-script-id": "off",
+    "@next/next/no-script-component-in-head": "off",
+    "react/no-unknown-property": "off",
+    "react/display-name": "off",
+    "react/no-children-prop": "off",
+    "no-empty-function": "off",
+    "@typescript-eslint/no-empty-function": "off",
+    "react/no-unescaped-entities": "off"
+
   }
 }

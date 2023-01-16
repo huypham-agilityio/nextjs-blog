@@ -2,10 +2,10 @@
 
 // libs
 import {
-  Center,
   Container,
   Heading,
   HStack,
+  SimpleGrid,
   Stack,
   Text,
 } from '@chakra-ui/react';
@@ -28,12 +28,17 @@ type Props = {
 export const FeaturedPosts = ({ data }: Props) => {
   return (
     <Container>
-      <Stack spacing="72px" px="150px" py="120px">
-        <HStack justifyContent="space-between">
-          <Heading size="3.5xl">What’s new at Yoora?</Heading>
+      <Stack spacing="72px" px={{ md: '60px', lg: '150px' }} py="80px">
+        <Stack
+          flexDir={{ base: 'column', md: 'row' }}
+          justifyContent={{ md: 'space-between' }}
+        >
+          <Heading size={{ base: 'xl', md: '2xl' }}>
+            What’s new at Yoora?
+          </Heading>
           <Link href={ROUTES.BLOG}>
-            <Center>
-              <Text fontSize="xl" mr="3" fontWeight="semibold">
+            <HStack>
+              <Text fontSize="lg" mr="3" fontWeight="semibold">
                 See all{' '}
               </Text>
               <Image
@@ -42,14 +47,14 @@ export const FeaturedPosts = ({ data }: Props) => {
                 width={10}
                 height={18}
               />
-            </Center>
+            </HStack>
           </Link>
-        </HStack>
-        <HStack spacing="7">
+        </Stack>
+        <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
           {data.map((post) => (
             <PostCard key={post.id} variant="large" data={post} />
           ))}
-        </HStack>
+        </SimpleGrid>
       </Stack>
     </Container>
   );

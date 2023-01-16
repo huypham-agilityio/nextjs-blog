@@ -5,6 +5,7 @@ import { typography } from './typography';
 import { Heading } from './heading';
 import { Container } from './container';
 import { colors } from './colors';
+import { breakpoints } from './breakpoints';
 
 const satoshi = localFont({
   src: '../public/fonts/Satoshi.ttf',
@@ -23,6 +24,7 @@ const theme = extendTheme({
   },
   colors,
   ...typography,
+  breakpoints,
 });
 
 export default theme;

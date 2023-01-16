@@ -1,16 +1,7 @@
 'use client';
 
 // libs
-import {
-  Box,
-  Center,
-  Container,
-  Heading,
-  Stack,
-  Text,
-  Wrap,
-  WrapItem,
-} from '@chakra-ui/react';
+import { Center, Heading, Stack, Text, Wrap, WrapItem } from '@chakra-ui/react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -21,19 +12,15 @@ import { integrations } from '@constants/mockData';
 import { ImageType } from 'types/index';
 
 type AppIcon = {
-  width?: string;
-  height?: string;
   image: ImageType;
 };
 
-const AppIntegrationItem = ({ data }: { data: AppIcon }) => {
-  const { width = '120px', height = '120px', image } = data;
-
+const AppIntegrationItem = ({ image }: AppIcon) => {
   return (
     <Link href="#">
       <Center
-        w={width}
-        h={height}
+        px="5"
+        h="78"
         bg="bg.tertiary"
         borderRadius="12px"
         _hover={{ opacity: '0.8' }}
@@ -51,38 +38,43 @@ const AppIntegrationItem = ({ data }: { data: AppIcon }) => {
 
 export const Integrations = () => {
   return (
-    <Box bg="bg.primary">
-      <Container>
-        <Stack px="135px" py="120px" textAlign="center" spacing="72px">
-          <Stack spacing="24px">
-            <Heading size="2xl">Over 300+ integrations</Heading>
-            <Text color="#3B3A40" fontSize="lg">
-              Expand the capabilities of Yoora with hundreds of apps and
-              integrations
-            </Text>
-          </Stack>
-          <Wrap>
-            {integrations.map((item, index) => (
-              <WrapItem key={index}>
-                <AppIntegrationItem data={item} />
-              </WrapItem>
-            ))}
-          </Wrap>
-          <Link href="#">
-            <Center>
-              <Text fontSize="2xl" mr="3" fontWeight="semibold">
-                See all apps and extensions{' '}
-              </Text>
-              <Image
-                src="/images/right-arrow.png"
-                alt="arrow icon"
-                width={11}
-                height={19}
-              />
-            </Center>
-          </Link>
+    <Center bg="bg.primary">
+      <Stack
+        px={{ md: '60px' }}
+        py="80px"
+        textAlign="center"
+        spacing={{ base: '32px', md: '60px' }}
+      >
+        <Stack spacing="24px">
+          <Heading size={{ base: 'xl', md: '2xl' }}>
+            Over 300+ integrations
+          </Heading>
+          <Text color="#3B3A40" fontSize={{ md: 'lg' }}>
+            Expand the capabilities of Yoora with hundreds of apps and
+            integrations
+          </Text>
         </Stack>
-      </Container>
-    </Box>
+        <Wrap justify="center" maxW={900}>
+          {integrations.map((item, index) => (
+            <WrapItem key={index}>
+              <AppIntegrationItem image={item} />
+            </WrapItem>
+          ))}
+        </Wrap>
+        <Link href="#">
+          <Center>
+            <Text mr="2" fontWeight="semibold" fontSize={{ md: 'xl' }}>
+              See all apps and extensions{' '}
+            </Text>
+            <Image
+              src="/images/right-arrow.png"
+              alt="arrow icon"
+              width={8}
+              height={19}
+            />
+          </Center>
+        </Link>
+      </Stack>
+    </Center>
   );
 };

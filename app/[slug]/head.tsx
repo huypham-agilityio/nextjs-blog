@@ -1,5 +1,4 @@
 import { getPost } from '@services/posts';
-import { Post } from 'types/index';
 
 const fetchPost = async (slug: string) => {
   return getPost(slug);
@@ -12,8 +11,8 @@ type Props = {
 };
 
 export default async function Head({ params }: Props) {
-  const data: Post[] = await fetchPost(params.slug);
-  const post = data.length ? data[0] : null;
+  const { data } = await fetchPost(params.slug);
+  const post = data?.status === 404 ? null : data[0];
 
   return (
     <>

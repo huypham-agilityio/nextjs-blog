@@ -1,7 +1,7 @@
 'use client';
 
 // libs
-import { Box, HStack, Text } from '@chakra-ui/react';
+import { Box, HStack, Stack, Text } from '@chakra-ui/react';
 import Link from 'next/link';
 
 // components
@@ -17,7 +17,13 @@ export const Footer = () => {
       borderTop="solid 1px"
       borderColor="rgb(120, 120, 120, 0.24)"
     >
-      <HStack justifyContent="space-around" py="40px">
+      <Stack
+        display="flex"
+        flexDir={{ base: 'column', md: 'row' }}
+        align="center"
+        py="40px"
+        justifyContent="space-around"
+      >
         <Text size="sm" color="textColors.quaternary">
           © Copyright 2022 Yoora, Inc.
         </Text>
@@ -33,7 +39,7 @@ export const Footer = () => {
           variant="unstyled"
           iconUrl="/earth.png"
         />
-      </HStack>
+      </Stack>
     </Box>
   );
 };

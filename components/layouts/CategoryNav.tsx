@@ -2,8 +2,10 @@
 
 // libs
 import { Tabs, TabList, Tab, Box, Container } from '@chakra-ui/react';
+import { Select } from '@components/common/Select';
+import { ROUTES } from '@constants/routes';
 import Link from 'next/link';
-import { useSelectedLayoutSegments } from 'next/navigation';
+import { useRouter, useSelectedLayoutSegments } from 'next/navigation';
 
 // types
 import { Category } from 'types/index';
@@ -14,21 +16,18 @@ type Props = {
 
 export const CategoryNav = ({ categories }: Props) => {
   const [selectedLayoutSegments] = useSelectedLayoutSegments();
+  const router = useRouter();
 
   return (
     <Box bg="bg.primary">
-      <Container>
+      <Container px={{ md: '60px', lg: '150px' }}>
         <Tabs
+          display={{ base: 'none', md: 'block' }}
           defaultIndex={
             categories?.map((i) => i.slug).indexOf(selectedLayoutSegments) + 1
           }
         >
-          <TabList
-            px="150px"
-            bg="bg.primary"
-            color="#777"
-            borderColor="bg.primary"
-          >
+          <TabList bg="bg.primary" color="#777" borderColor="bg.primary">
             <Tab
               _selected={{
                 color: 'black',
@@ -36,7 +35,7 @@ export const CategoryNav = ({ categories }: Props) => {
                 borderColor: 'whatsapp.500',
               }}
             >
-              <Link href="/blog/1">All Articles</Link>
+              <Link href={ROUTES.BLOG}>All Articles</Link>
             </Tab>
             {categories.map(({ id, name, slug }) => (
               <Tab
@@ -52,6 +51,23 @@ export const CategoryNav = ({ categories }: Props) => {
             ))}
           </TabList>
         </Tabs>
+
+        <Select
+          bg="white"
+          my="24px"
+          onChange={(e) => router.push(e.target.value)}
+          display={{ md: 'none' }}
+          options={[
+            {
+              value: ROUTES.BLOG,
+              label: 'All Articles',
+            },
+            ...categories.map(({ name, slug }) => ({
+              value: `/blog/category/${slug}/1`,
+              label: name,
+            })),
+          ]}
+        />
       </Container>
     </Box>
   );

@@ -6,6 +6,7 @@ import { LIMIT } from '@constants/pagination';
 
 // components
 import { BlogPage } from '../BlogPage';
+import { notFound } from 'next/navigation';
 
 const fetchPosts = async (page: number) => {
   return getPosts({ page, limit: LIMIT });
@@ -18,6 +19,12 @@ export const generateStaticParams = async () => {
 
 const Page = async ({ params }: { params: { page: string } }) => {
   const { data, total } = await fetchPosts(Number(params.page));
+
+  if (data?.status === 404) {
+    console.log('NOTTTTOOOO');
+
+    notFound();
+  }
 
   return <BlogPage data={data} params={params} total={total} />;
 };

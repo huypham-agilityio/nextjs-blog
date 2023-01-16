@@ -1,7 +1,14 @@
 'use client';
 
 // libs
-import { Box, Container, Heading, HStack, Stack, Text } from '@chakra-ui/react';
+import {
+  Box,
+  Container,
+  Heading,
+  SimpleGrid,
+  Stack,
+  Text,
+} from '@chakra-ui/react';
 
 // constants
 import { benefits } from '@constants/mockData';
@@ -12,10 +19,15 @@ import BenefitCard from './BenefitCard';
 export const Benefits = () => {
   return (
     <Box bg="bg.secondary">
-      <Container>
-        <Stack spacing="80px" px="150px" py="120px">
-          <HStack>
-            <Heading color="textColors.secondary" size="2xl" flexBasis={600}>
+      <Container py="100px" px={{ md: '60px', lg: '150px' }}>
+        <Stack spacing="80px">
+          <Stack flexDir={{ base: 'column', md: 'row' }}>
+            <Heading
+              color="textColors.secondary"
+              size={{ base: 'xl', md: '2xl' }}
+              maxW="520px"
+              mr={{ md: '50px' }}
+            >
               Here&apos;s how Yoora can benefit your business
             </Heading>
             <Text color="textColors.secondary" fontSize="lg" maxW={487}>
@@ -23,12 +35,16 @@ export const Benefits = () => {
               understand their needs, identify new opportunities to help,
               address any problems faster.
             </Text>
-          </HStack>
-          <HStack justifyContent="space-between">
+          </Stack>
+          <SimpleGrid
+            columns={{ md: 2, lg: 3 }}
+            spacing="15px"
+            justifyItems="center"
+          >
             {benefits.map((item, index) => (
-              <BenefitCard key={item.id} data={item} active={index === 0} />
+              <BenefitCard key={index} data={item} active={index === 0} />
             ))}
-          </HStack>
+          </SimpleGrid>
         </Stack>
       </Container>
     </Box>

@@ -1,4 +1,3 @@
-export const dynamic = 'force-dynamic';
 // libs
 import { Suspense } from 'react';
 

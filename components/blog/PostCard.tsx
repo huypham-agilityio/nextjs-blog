@@ -23,7 +23,7 @@ const PostCard = ({ variant, data }: Props) => {
   const { author, category, image, publishedTime, title, slug } = data || {};
 
   return (
-    <Box w={isLarge ? '555px' : '361px'}>
+    <Box w="100%">
       <Box mb="6">
         <Text
           fontSize="sm"
@@ -37,19 +37,20 @@ const PostCard = ({ variant, data }: Props) => {
       </Box>
 
       <Stack spacing="6">
-        <Box pos="relative" w="100%" h={isLarge ? '370px' : '241px'}>
+        <Box pos="relative" paddingBottom="60%">
           <Image
             style={{ objectFit: 'cover' }}
             src={image?.src}
             alt={image?.alt}
             fill={true}
+            sizes="(min-width: 768px) 50vw, (min-width: 1024px) 33vw, 100vw"
             placeholder="blur"
             blurDataURL={blurDataUrl}
           />
         </Box>
         <Link href={`/${slug}`} prefetch={false}>
           <Heading
-            fontSize={isLarge ? '3xl' : '2xl'}
+            fontSize={isLarge ? '1.5xl' : 'xl'}
             _hover={{ opacity: '0.8' }}
           >
             {title}

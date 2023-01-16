@@ -14,7 +14,11 @@ type Props = {
 };
 export const BlogList = ({ data }: Props) => {
   return (
-    <SimpleGrid columns={{ sm: 2, md: 3 }} spacingX="30px" spacingY="120px">
+    <SimpleGrid
+      columns={{ base: 1, md: 2, lg: 3 }}
+      spacingX="30px"
+      spacingY="120px"
+    >
       {data.map((item) => (
         <PostCard key={item.id} data={item} />
       ))}

@@ -1,6 +1,6 @@
 'use client';
 // libs
-import { Button, Center, Stack, Text } from '@chakra-ui/react';
+import { Box, Button, Container, Stack, Text } from '@chakra-ui/react';
 import Link from 'next/link';
 
 // components
@@ -29,8 +29,8 @@ export const BlogPage = ({ data, params, total = 0 }: Props) => {
     : `/blog/${currentPage + 1}`;
 
   return (
-    <Center my="10">
-      <Stack spacing="40px">
+    <Box my="10">
+      <Container px={{ md: '60px', lg: '150px' }}>
         {!data?.length ? (
           <Text fontSize="3xl" color="textColors.tertiary">
             There are no posts.
@@ -53,7 +53,7 @@ export const BlogPage = ({ data, params, total = 0 }: Props) => {
             </Link>
           </Stack>
         )}
-      </Stack>
-    </Center>
+      </Container>
+    </Box>
   );
 };

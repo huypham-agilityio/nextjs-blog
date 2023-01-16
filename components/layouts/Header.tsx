@@ -15,19 +15,28 @@ export const Header = () => {
 
   return (
     <Box bg="bg.primary">
-      <Container>
+      <Container px={{ md: '60px', lg: '150px' }}>
         <HStack
           as="nav"
           bg="bg.primary"
           justifyContent="space-between"
-          px="150px"
           py="24px"
         >
-          <HStack alignItems="center" spacing="90px">
-            <Link href={ROUTES.HOME}>
-              <Image src="/logo.png" alt="Yoora logo" width={106} height={22} />
-            </Link>
-            <HStack spacing="40px">
+          <HStack alignItems="center" spacing={{ base: '40px', lg: '90px' }}>
+            <Box minW={106}>
+              <Link href={ROUTES.HOME}>
+                <Image
+                  src="/logo.png"
+                  alt="Yoora logo"
+                  width={106}
+                  height={22}
+                />
+              </Link>
+            </Box>
+            <HStack
+              spacing={{ md: '24px', lg: '40px' }}
+              display={{ base: 'none', md: 'flex' }}
+            >
               {menuItems.map(({ path, label }) => (
                 <Link key={label} href={path}>
                   <Text

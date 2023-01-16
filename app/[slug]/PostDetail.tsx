@@ -17,7 +17,12 @@ export const PostDetail = ({ data }: Props) => {
 
   return (
     <>
-      <Stack alignItems="center" pt="70px" bg="bg.primary">
+      <Stack
+        alignItems="center"
+        pt="70px"
+        bg="bg.primary"
+        px={{ base: '24px', md: '60px' }}
+      >
         <Box maxW="945px" w="100%" m="auto">
           <Stack maxW="750px" m="auto" mb="30px">
             <Text
@@ -30,7 +35,7 @@ export const PostDetail = ({ data }: Props) => {
               {category}
             </Text>
             <Divider borderColor="textColors.tertiary" />
-            <Heading fontSize="5xl" pt="20px">
+            <Heading size={{ base: 'xl', md: '2xl' }} pt="20px">
               {title}
             </Heading>
             <Text fontWeight="semibold" pt="24px">
@@ -40,7 +45,7 @@ export const PostDetail = ({ data }: Props) => {
               </Text>
             </Text>
           </Stack>
-          <Box w="100%" pos="relative" h="510px">
+          <Box w="100%" pos="relative" paddingBottom="60%">
             <Image
               src={image?.src}
               alt={image?.alt}
@@ -52,7 +57,7 @@ export const PostDetail = ({ data }: Props) => {
         </Box>
       </Stack>
 
-      <Stack alignItems="center" my="10">
+      <Stack alignItems="center" my="30px" px="24px">
         <Stack maxW="750px" alignItems="center">
           <Text fontSize="lg" fontWeight="semibold" lineHeight={1.8}>
             {content}
