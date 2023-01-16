@@ -22,10 +22,7 @@ import { customers } from '@constants/mockData';
 export const Hero = () => {
   return (
     <Box bg="bg.primary">
-      <Container
-        pl={{ base: '24px', md: '60px', lg: '150px' }}
-        pr={{ base: '24px', lg: '0' }}
-      >
+      <Container pl={{ md: '60px', lg: '150px' }} pr={{ lg: 0 }}>
         <Stack pt={{ md: '60px' }}>
           <Stack flexDir={{ base: 'column', lg: 'row' }}>
             <Box mr={{ lg: '40px', xl: '80px' }} w={{ lg: '50%' }}>
@@ -80,7 +77,7 @@ export const Hero = () => {
                 placeholder="blur"
                 blurDataURL={blurDataUrl}
                 fill={true}
-                sizes="100vw"
+                sizes="(min-width: 1024px) 33vw, 100vw"
                 style={{
                   borderRadius: '20px 0 0 20px',
                   objectFit: 'cover',

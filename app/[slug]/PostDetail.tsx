@@ -45,11 +45,12 @@ export const PostDetail = ({ data }: Props) => {
               </Text>
             </Text>
           </Stack>
-          <Box w="100%" pos="relative" paddingBottom="60%">
+          <Box w="100%" pos="relative" paddingBottom="66%">
             <Image
               src={image?.src}
               alt={image?.alt}
               fill={true}
+              sizes="100vw"
               placeholder="blur"
               blurDataURL={blurDataUrl}
             />
