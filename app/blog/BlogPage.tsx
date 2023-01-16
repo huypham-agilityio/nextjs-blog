@@ -32,7 +32,7 @@ export const BlogPage = ({ data, params, total = 0 }: Props) => {
     <Box my="10">
       <Container px={{ md: '60px', lg: '150px' }}>
         {!data?.length ? (
-          <Text fontSize="3xl" color="textColors.tertiary">
+          <Text fontSize="2xl" color="textColors.tertiary"  textAlign='center'>
             There are no posts.
           </Text>
         ) : (
