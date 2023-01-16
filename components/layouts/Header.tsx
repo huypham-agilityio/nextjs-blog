@@ -1,7 +1,16 @@
 'use client';
 
 // libs
-import { Box, Button, Container, HStack, Text } from '@chakra-ui/react';
+import { HamburgerIcon } from '@chakra-ui/icons';
+import dynamic from 'next/dynamic';
+import {
+  Box,
+  Button,
+  Container,
+  HStack,
+  Text,
+  useDisclosure,
+} from '@chakra-ui/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useSelectedLayoutSegments } from 'next/navigation';
@@ -10,8 +19,13 @@ import { useSelectedLayoutSegments } from 'next/navigation';
 import { ROUTES } from '@constants/routes';
 import { menuItems } from '@constants/menuItems';
 
+const DynamicDrawerMenu = dynamic(
+  () => import('@components/layouts/DrawerMenu')
+);
+
 export const Header = () => {
   const [selectedLayoutSegments] = useSelectedLayoutSegments();
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <Box bg="bg.primary">
@@ -40,6 +54,7 @@ export const Header = () => {
               {menuItems.map(({ path, label }) => (
                 <Link key={label} href={path}>
                   <Text
+                    onClick={onClose}
                     fontWeight="medium"
                     borderBottom={
                       selectedLayoutSegments === path.split('/')[1]
@@ -54,14 +69,25 @@ export const Header = () => {
               ))}
             </HStack>
           </HStack>
-          <HStack spacing="16px">
+          <HStack spacing="16px" display={{ base: 'none', md: 'flex' }}>
             <Button size="sm">Login</Button>
             <Button size="sm" variant="primary">
               Try for Free
             </Button>
           </HStack>
+          <Box display={{ md: 'none' }}>
+            <Button
+              colorScheme="teal"
+              onClick={() => {
+                onOpen();
+              }}
+            >
+              <HamburgerIcon />
+            </Button>
+          </Box>
         </HStack>
       </Container>
+      {isOpen && <DynamicDrawerMenu isOpen={isOpen} onClose={onClose} />}
     </Box>
   );
 };
