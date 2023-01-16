@@ -38,11 +38,11 @@ type Props = {
 const Page = async ({ params }: Props) => {
   const { data } = await fetchPostDetail(params.slug);
 
-  if (data?.status === 404) {
+  if (!data) {
     notFound();
   }
 
-  return <PostDetail data={data[0]} />;
+  return <PostDetail data={data} />;
 };
 
 export default Page;

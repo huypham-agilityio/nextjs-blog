@@ -60,5 +60,5 @@ export const getCategories = async () => {
 export const getPost = async (slug: string) => {
   const data = await fetchRequest(`${BASE_API_URL}/posts?slug=${slug}`);
 
-  return { data };
+  return { data: data?.length ? data[0] : null };
 };

@@ -32,7 +32,7 @@ export const BlogPage = ({ data, params, total = 0 }: Props) => {
     <Box my="10">
       <Container px={{ md: '60px', lg: '150px' }}>
         {!data?.length ? (
-          <Text fontSize="2xl" color="textColors.tertiary"  textAlign='center'>
+          <Text fontSize="3xl" color="textColors.tertiary">
             There are no posts.
           </Text>
         ) : (
@@ -40,7 +40,7 @@ export const BlogPage = ({ data, params, total = 0 }: Props) => {
         )}
 
         {total > LIMIT * currentPage && (
-          <Stack direction="row" justifyContent="flex-end" mt="32px">
+          <Stack direction="row" justifyContent="flex-end" mt="24px">
             <Link href={nextPagePath}>
               <Button
                 size="sm"
