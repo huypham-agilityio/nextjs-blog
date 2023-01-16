@@ -54,7 +54,6 @@ export const Header = () => {
               {menuItems.map(({ path, label }) => (
                 <Link key={label} href={path}>
                   <Text
-                    onClick={onClose}
                     fontWeight="medium"
                     borderBottom={
                       selectedLayoutSegments === path.split('/')[1]
@@ -78,9 +77,7 @@ export const Header = () => {
           <Box display={{ md: 'none' }}>
             <Button
               colorScheme="teal"
-              onClick={() => {
-                onOpen();
-              }}
+              onClick={onOpen}
             >
               <HamburgerIcon />
             </Button>

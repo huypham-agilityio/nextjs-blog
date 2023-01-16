@@ -33,7 +33,7 @@ const DrawerMenu = ({ isOpen, onClose }: Props) => {
         <DrawerBody>
           {menuItems.map(({ path, label }) => (
             <Link key={label} href={path}>
-              <Text p="2" fontWeight="medium">
+              <Text onClick={onClose} p="2" fontWeight="medium">
                 {label}
               </Text>
               <Divider />
