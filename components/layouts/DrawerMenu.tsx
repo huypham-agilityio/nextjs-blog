@@ -29,7 +29,6 @@ const DrawerMenu = ({ isOpen, onClose }: Props) => {
       <DrawerOverlay />
       <DrawerContent>
         <DrawerCloseButton />
-
         <DrawerBody>
           {menuItems.map(({ path, label }) => (
             <Link key={label} href={path}>

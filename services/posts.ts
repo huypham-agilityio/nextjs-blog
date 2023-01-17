@@ -32,7 +32,7 @@ export const getPosts = async (pagination: PageInput) => {
     }
   );
 
-  // total is known by the DB
+  // mock total value - total is known by the DB
   return { data, total: 30 };
 };
 
@@ -48,7 +48,7 @@ export const getPostsByCategory = async (
     }
   );
 
-  // total is known by the DB
+  // mock total value - total is known by the DB
   return { data, total: 15 };
 };
 

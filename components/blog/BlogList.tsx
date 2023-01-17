@@ -12,6 +12,7 @@ import { Post } from 'types/index';
 type Props = {
   data: Post[];
 };
+
 export const BlogList = ({ data }: Props) => {
   return (
     <SimpleGrid

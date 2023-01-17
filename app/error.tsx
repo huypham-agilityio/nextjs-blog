@@ -1,14 +1,20 @@
 'use client';
 
-//libs
-import { Center, Text } from '@chakra-ui/react';
+import { Box, Button, Center, Text } from '@chakra-ui/react';
 
-const Error = () => {
-  return (
-    <Center minH="calc(100vh - 185px)">
-      <Text fontSize="2xl">Oops! Something went wrong.</Text>
-    </Center>
-  );
+type Props = {
+  error?: Error;
+  reset?: () => void;
 };
 
-export default Error;
+export default function Error({ error, reset }: Props) {
+  return (
+    <Center>
+      <Box p="10">
+        <Text fontSize="xl">Something went wrong!</Text>
+        <Text mb="10">Error: {error?.message}</Text>
+        <Button onClick={reset}>Reset error boundary</Button>
+      </Box>
+    </Center>
+  );
+}

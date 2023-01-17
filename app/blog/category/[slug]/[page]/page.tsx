@@ -1,3 +1,6 @@
+// libs
+import { notFound } from 'next/navigation';
+
 // utils
 import { getCategories, getPostsByCategory } from '@services/posts';
 
@@ -9,7 +12,6 @@ import { LIMIT } from '@constants/pagination';
 
 // types
 import { Category } from 'types/index';
-import { notFound } from 'next/navigation';
 
 const fetchPostsByCategory = async (category: string, page: number) => {
   return getPostsByCategory(category, { page, limit: LIMIT });

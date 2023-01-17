@@ -46,9 +46,24 @@
   - [Blog list page](https://www.figma.com/file/vxpGwXCoCTOmemQ77z9UYB/Yoora-CMS?node-id=0%3A1&t=nlDKzJP7uWlsj3Ko-0)
   - [Blog detail page](https://www.figma.com/file/vxpGwXCoCTOmemQ77z9UYB/Yoora-CMS?node-id=0%3A1815&t=nlDKzJP7uWlsj3Ko-0)
 
-## Editors
+## Environment
 
-- [Visual Studio Code](https://code.visualstudio.com/)
+- Visual Studio Code
+- GitLab
+- Node v18.12.1
+
+## The *app* directory
+
+- Flow:
+
+  ![Image](./public/images/flow-app.png)
+
+## Sample flow of pages/layouts
+
+- Home page:
+
+  ![Image](./public/images/flow-home-page.png)
+
 
 ## How to run
 

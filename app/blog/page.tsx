@@ -1,3 +1,6 @@
+// libs
+import { notFound } from 'next/navigation';
+
 // utils
 import { getPosts } from 'services/posts';
 
@@ -6,7 +9,6 @@ import { BlogPage } from './BlogPage';
 
 // constants
 import { LIMIT } from '@constants/pagination';
-import { notFound } from 'next/navigation';
 
 const fetchPosts = async () => {
   return getPosts({ page: 1, limit: LIMIT });
