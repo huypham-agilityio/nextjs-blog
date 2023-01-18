@@ -37,7 +37,7 @@ export const CategoryNav = ({ categories }: Props) => {
             >
               <Link href={ROUTES.BLOG}>All Articles</Link>
             </Tab>
-            {categories.map(({ id, name, slug }) => (
+            {categories?.map(({ id, name, slug }) => (
               <Tab
                 key={id}
                 _selected={{
@@ -62,7 +62,7 @@ export const CategoryNav = ({ categories }: Props) => {
               value: ROUTES.BLOG,
               label: 'All Articles',
             },
-            ...categories.map(({ name, slug }) => ({
+            ...categories?.map(({ name, slug }) => ({
               value: `/blog/category/${slug}/1`,
               label: name,
             })),
