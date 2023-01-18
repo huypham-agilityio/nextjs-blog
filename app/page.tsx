@@ -2,11 +2,11 @@
 import { Suspense } from 'react';
 
 // components
-import { Benefits } from '@components/home/Benefits';
-import { Hero } from '@components/home/Hero';
-import { Integrations } from '@components/home/Integrations';
+import { Benefits } from '@components/Benefits';
+import { Hero } from '@components/Hero';
+import { Integrations } from '@components/Integrations';
 import Loading from './loading';
-import { Featured } from './Featured';
+import { FeaturedPosts } from '../components/FeaturedPosts';
 
 const Home = () => (
   <>
@@ -15,7 +15,7 @@ const Home = () => (
     <Integrations />
     <Suspense fallback={<Loading />}>
       {/* @ts-expect-error Server Component */}
-      <Featured />
+      <FeaturedPosts />
     </Suspense>
   </>
 );

@@ -13,7 +13,7 @@ export default function Error({ error, reset }: Props) {
       <Box p="10">
         <Text fontSize="xl">Something went wrong!</Text>
         <Text mb="10">Error: {error?.message}</Text>
-        <Button onClick={reset}>Reset error boundary</Button>
+        <Button onClick={reset}>Try again</Button>
       </Box>
     </Center>
   );

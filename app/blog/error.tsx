@@ -1,27 +1,20 @@
 'use client';
 
-// libs
-import { Center, Text } from '@chakra-ui/react';
+import { Box, Button, Center, Text } from '@chakra-ui/react';
 
-import React from 'react';
-
-const Error = ({
-  error,
-  reset,
-}: {
-  error: Error;
-  reset: () => void;
-}) => {
-  React.useEffect(() => {
-    // Log the error to an error reporting service
-    console.error(error);
-  }, [error]);
-
-  return (
-    <Center py="24px">
-      <Text fontSize="2xl">Oops! Something went wrong.</Text>
-    </Center>
-  );
+type Props = {
+  error?: Error;
+  reset?: () => void;
 };
 
-export default Error;
+export default function Error({ error, reset }: Props) {
+  return (
+    <Center>
+      <Box p="10">
+        <Text fontSize="xl">Something went wrong!</Text>
+        <Text mb="10">Error: {error?.message}</Text>
+        <Button onClick={reset}>Try again</Button>
+      </Box>
+    </Center>
+  );
+}

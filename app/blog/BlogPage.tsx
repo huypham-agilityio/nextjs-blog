@@ -4,7 +4,7 @@ import { Box, Button, Container, Stack, Text } from '@chakra-ui/react';
 import Link from 'next/link';
 
 // components
-import { BlogList } from '@components/blog/BlogList';
+import { BlogList } from '@components/BlogList';
 
 // constants
 import { LIMIT } from '@constants/pagination';

@@ -6,7 +6,7 @@ import { getCategories } from '@services/posts';
 
 // components
 import { CategoryNav } from '@components/layouts/CategoryNav';
-import { BlogIntroduction } from '@components/blog/BlogIntroduction';
+import { BlogIntroduction } from '@components/BlogIntroduction/index';
 
 async function fetchCategories() {
   return getCategories();
