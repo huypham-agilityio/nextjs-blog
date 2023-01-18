@@ -1,21 +1,26 @@
 'use client';
 
 // libs
+
 import { Center, Heading, Stack, Text, Wrap, WrapItem } from '@chakra-ui/react';
+
 import Image from 'next/image';
+import { ImageType } from 'types/index';
 import Link from 'next/link';
+import { integrations } from '@constants/mockData';
+import { memo } from 'react';
 
 // constants
-import { integrations } from '@constants/mockData';
+
 
 // types
-import { ImageType } from 'types/index';
+
 
 type AppIcon = {
   image: ImageType;
 };
 
-const AppIntegrationItem = ({ image }: AppIcon) => {
+const AppIntegrationItem = memo(({ image }: AppIcon) => {
   return (
     <Link href="#">
       <Center
@@ -34,9 +39,9 @@ const AppIntegrationItem = ({ image }: AppIcon) => {
       </Center>
     </Link>
   );
-};
+});
 
-export const Integrations = () => {
+export const Integrations = memo(() => {
   return (
     <Center bg="bg.primary">
       <Stack
@@ -77,4 +82,4 @@ export const Integrations = () => {
       </Stack>
     </Center>
   );
-};
+});

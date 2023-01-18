@@ -1,25 +1,30 @@
 'use client';
 
 // libs
+
 import {
   Box,
   Button,
   Container,
-  Heading,
   HStack,
+  Heading,
   Input,
   InputGroup,
   InputRightElement,
   Stack,
   Text,
 } from '@chakra-ui/react';
-import Image from 'next/image';
 
-// constants
+import Image from 'next/image';
 import { blurDataUrl } from '@constants/index';
 import { customers } from '@constants/mockData';
+import { memo } from 'react';
 
-export const Hero = () => {
+// constants
+
+
+
+export const Hero = memo(() => {
   return (
     <Box bg="bg.primary">
       <Container pl={{ md: '60px', lg: '150px' }} pr={{ lg: 0 }}>
@@ -109,4 +114,4 @@ export const Hero = () => {
       </Container>
     </Box>
   );
-};
+});

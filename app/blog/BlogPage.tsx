@@ -1,10 +1,12 @@
 'use client';
+
 // libs
-import { Box, Button, Container, Stack, Text } from '@chakra-ui/react';
+import { Box, Button, Container, Stack } from '@chakra-ui/react';
 import Link from 'next/link';
 
 // components
 import { BlogList } from '@components/BlogList';
+import { EmptyData } from '@components/Empty';
 
 // constants
 import { LIMIT } from '@constants/pagination';
@@ -31,13 +33,7 @@ export const BlogPage = ({ data, params, total = 0 }: Props) => {
   return (
     <Box my="10">
       <Container px={{ md: '60px', lg: '150px' }}>
-        {!data?.length ? (
-          <Text fontSize="3xl" color="textColors.tertiary">
-            There are no posts.
-          </Text>
-        ) : (
-          <BlogList data={data} />
-        )}
+        {!data?.length ? <EmptyData /> : <BlogList data={data} />}
 
         {total > LIMIT * currentPage && (
           <Stack direction="row" justifyContent="flex-end" mt="24px">

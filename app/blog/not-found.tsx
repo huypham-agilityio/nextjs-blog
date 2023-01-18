@@ -1,14 +1,8 @@
 'use client';
 
-// libs
-import { Center, Text } from '@chakra-ui/react';
+// components
+import NotFound from '@components/NotFound';
 
-const NotFound = () => {
-  return (
-    <Center py="24px">
-      <Text fontSize="4xl">Page Not Found.</Text>
-    </Center>
-  );
-};
+const Page = () => <NotFound />;
 
-export default NotFound;
+export default Page;

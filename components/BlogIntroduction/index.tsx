@@ -2,7 +2,9 @@
 
 import { Box, Container, Heading, Text } from '@chakra-ui/react';
 
-export const BlogIntroduction = () => {
+import { memo } from 'react';
+
+export const BlogIntroduction = memo(() => {
   return (
     <Box bg="bg.primary">
       <Container px={{ md: '60px', lg: '150px' }}>
@@ -20,4 +22,4 @@ export const BlogIntroduction = () => {
       </Container>
     </Box>
   );
-};
+});

@@ -1,7 +1,9 @@
 'use client';
 
 // libs
+import isEqual from 'react-fast-compare';
 import { SimpleGrid } from '@chakra-ui/react';
+import { memo } from 'react';
 
 // components
 import PostCard from '@components/PostCard';
@@ -13,7 +15,7 @@ type Props = {
   data: Post[];
 };
 
-export const BlogList = ({ data }: Props) => {
+export const BlogList = memo(({ data }: Props) => {
   return (
     <SimpleGrid
       columns={{ base: 1, md: 2, lg: 3 }}
@@ -25,4 +27,4 @@ export const BlogList = ({ data }: Props) => {
       ))}
     </SimpleGrid>
   );
-};
+}, isEqual);

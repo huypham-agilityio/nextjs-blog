@@ -1,6 +1,7 @@
 'use client';
 
 // libs
+
 import {
   Box,
   Container,
@@ -10,13 +11,17 @@ import {
   Text,
 } from '@chakra-ui/react';
 
-// constants
+import BenefitCard from './BenefitCard';
 import { benefits } from '@constants/mockData';
+import { memo } from 'react';
+
+// constants
+
 
 // components
-import BenefitCard from './BenefitCard';
 
-export const Benefits = () => {
+
+export const Benefits = memo(() => {
   return (
     <Box bg="bg.secondary">
       <Container py="100px" px={{ md: '60px', lg: '150px' }}>
@@ -49,4 +54,4 @@ export const Benefits = () => {
       </Container>
     </Box>
   );
-};
+});
